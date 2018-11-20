@@ -100,8 +100,8 @@
 ### next unix equals the last_unix + 86400 seconds
 ### These are the days predicted after the supervised test data
 
-for i in forecast_set:
-    next_date = datetime.datetime.fromtimestamp(next_unix)
+    for i in forecast_set:
+        next_date = datetime.datetime.fromtimestamp(next_unix)
 ### Assigning the next_date with datetime fromtimestamp in seconds for next_unix
     next_unix += one_day
 ### Assigning the next_unix by adding one_day which is 86400 seconds
