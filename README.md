@@ -1,4 +1,5 @@
 ### Machine_Learning_Basics
+#### This is a simple linear regression model that trains and predicts stock data from Google
     #quandl.ApiConfig.api_key = 'Insert here'
     df = quandl.get("WIKI/GOOGL")
 ### Use quandl.get to get the dataset "WIKI/GOOGL" from quandl.com 
