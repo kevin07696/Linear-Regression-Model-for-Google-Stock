@@ -98,7 +98,7 @@
     one_day = 86400
 #### Converting the day to seconds
     next_unix = last_unix + one_day
-#### next unix equals the last_unix + 86400 seconds
+#### next_unix equals the last_unix + 86400 seconds
 #### These are the days predicted after the supervised test data
 
     for i in forecast_set:
