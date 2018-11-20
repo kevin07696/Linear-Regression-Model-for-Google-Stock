@@ -1,15 +1,15 @@
 ### Machine_Learning_Basics
     #quandl.ApiConfig.api_key = 'Insert here'
     df = quandl.get("WIKI/GOOGL")
-### use quandl.get to get the dataset "WIKI/GOOGL" from quandl.com 
+### Use quandl.get to get the dataset "WIKI/GOOGL" from quandl.com 
 
     print(df.head())
     print(df.tail())
-### print the first 5 rows of the dataset assigned to df
+### Print the first 5 rows of the dataset assigned to df
 
     df = df[['Adj. Open',  'Adj. High',  'Adj. Low',  'Adj. Close', 'Adj. Volume']]
 ### Assign the new df with the specific columns in the brackets of df. 
-### *Why are there 2 brackets?
+### Why are there 2 brackets?
 ### The first squared-bracket is for the dataframe and the second is for the array inside
 
     df['HL_PCT'] = (df['Adj. High'] - df['Adj. Low']) / df['Adj. Close'] * 100.0
@@ -26,7 +26,7 @@
     int makes it a whole number; forecast_out in number of rows'''
 
     df['label'] = df[forecast_col].shift(-forecast_out)
-### shift up (negative) by -forecast_out, which is 35 rows
+### Shift up (negative) by -forecast_out, which is 35 rows
     '''
     df['Z'] = df[Y].shift(-1)
     X	Y	Z
@@ -68,7 +68,7 @@
 
     X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
     clf = LinearRegression(n_jobs=-1)
-### jobs are how many times the regression trains. 
+### Jobs are how many times the regression trains. 
 ### At -1 trains as many times as your machine can run
     clf.fit(X_train,y_train)
     accuracy = clf.score(X_test,y_test)
