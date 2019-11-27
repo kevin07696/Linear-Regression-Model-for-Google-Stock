@@ -1,17 +1,23 @@
+# conda install quandl numpy pandas sci-kitlearn matplotlib
+# math, datetime, and pickle are native libraries
+
 import quandl, math
 import numpy as np
 import pandas as pd
-from sklearn import preprocessing, cross_validation, svm
+from sklearn import preprocessing, svm
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from matplotlib import style
 import datetime
 import pickle
 
-quandl.ApiConfig.api_key = 'idfPnnnPuw9rn5orap_F'
+# Use my api token for quandl and get your own from quandl.com
+quandl.ApiConfig.api_key = 'APC2w-M7pBjGCFWBXvPJ'
 
 style.use('ggplot')
 
+# This data set is from quandl. It is a dataset about Google's stock
 df = quandl.get("WIKI/GOOGL")
 df = df[['Adj. Open',  'Adj. High',  'Adj. Low',  'Adj. Close', 'Adj. Volume']]
 df['HL_PCT'] = (df['Adj. High'] - df['Adj. Low']) / df['Adj. Close'] * 100.0
@@ -33,7 +39,9 @@ df.dropna(inplace=True)
 
 y = np.array(df['label'])
 
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Uncomment code below to create the pickle, then recomment when loading the pickle.
 
 # clf = LinearRegression(n_jobs=-1)
 # clf.fit(X_train, y_train)
